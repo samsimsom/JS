@@ -64,4 +64,33 @@ function lessonThree() {
   console.log(4);
 }
 
-lessonThree();
+// lessonThree();
+
+function lessonFour() {
+  // Lesson Four Content
+  const getTodos = (callback) => {
+    const request = new XMLHttpRequest();
+
+    request.addEventListener("readystatechange", () => {
+      if (request.readyState === 4 && request.status === 200) {
+        const data = JSON.parse(request.responseText);
+        callback(undefined, data);
+      } else if (request.readyState === 4) {
+        callback("Could not fetch the data!", undefined);
+      }
+    });
+
+    request.open("GET", "https://jsonplaceholder.typicode.com/posts/1");
+    request.send();
+  };
+
+  getTodos((error, data) => {
+    console.log("callback fired!");
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(data);
+    }
+  });
+}
+lessonFour();
