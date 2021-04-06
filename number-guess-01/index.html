@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <title>Number Guess Game | 01</title>
+  </head>
+  <body>
+    <div class="container" id="number-guess-game">
+      <h2>Number Guess Game | 01</h2>
+      <hr />
+      <div id="game-info">
+        <p>
+          Guess a number between <span id="min-number">1</span> and
+          <span id="max-number">10</span>
+        </p>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <input class="u-full-width" type="number" id="guess-number-input" />
+        </div>
+        <div class="six columns">
+          <input
+            class="button-primary u-full-width"
+            type="submit"
+            value="Guess A Number"
+            id="guess-number-btn"
+          />
+        </div>
+      </div>
+
+      <div id="game-progress-message">
+        <p> </p>
+      </div>
+
+      <hr />
+
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Old Guesses</th>
+          </tr>
+        </thead>
+
+        <tbody id="old-guess-table">
+        </tbody>
+        
+      </table>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
