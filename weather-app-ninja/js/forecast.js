@@ -2,6 +2,7 @@ console.log("--- forecast ---");
 
 const key = "hAOrGDjP494GWC5spRbvqQ6CvzSBlVT3";
 
+// Get City Information
 const getCity = async (city) => {
   const base = "http://dataservice.accuweather.com/locations/v1/cities/search";
   const query = `?apikey=${key}&q=${city}`;
@@ -12,6 +13,21 @@ const getCity = async (city) => {
   return data[0];
 };
 
-getCity("ankara")
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err));
+// Get Weather Information
+const getWeather = async (id) => {
+  const base = "http://dataservice.accuweather.com/currentconditions/v1/";
+  const query = `${id}?apikey=${key}`;
+
+  const responce = await fetch(base + query);
+  const data = await responce.json();
+
+  return data[0];
+};
+
+// getCity("ankara")
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err));
+
+// getWeather("316938")
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log(err));
