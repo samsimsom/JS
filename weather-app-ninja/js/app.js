@@ -7,10 +7,6 @@ const time = document.querySelector("img.time");
 const icon = document.querySelector(".icon img");
 
 const updateUI = (data) => {
-  // old way
-  // const cityDets = data.cityDets;
-  // const weather = data.weather;
-
   // new way
   // Desutructure properties
   const { cityDets, weather } = data;

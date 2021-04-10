@@ -23,11 +23,3 @@ const getWeather = async (id) => {
 
   return data[0];
 };
-
-// getCity("ankara")
-//   .then((data) => console.log(data))
-//   .catch((err) => console.log(err));
-
-// getWeather("316938")
-//   .then((data) => console.log(data))
-//   .catch((err) => console.log(err));
