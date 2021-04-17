@@ -1,25 +1,71 @@
-const Hangman = function (word, remainingGuesses) {
-  this.word = word.toLowerCase().split('')
-  this.remainingGuesses = remainingGuesses
-  this.guessedLetters = ['c', 'e']
-}
+// class
+class Hangman {
+  constructor(word, remainingGuesses) {
+    this.word = word.toLowerCase().split('')
+    this.remainingGuesses = remainingGuesses
+    this.guessedLetters = []
+    this.status = 'playing'
+  }
 
-Hangman.prototype.getPuzzle = function () {
-  let puzzle = ''
+  // custom getter class method
+  get puzzle() {
+    let puzzle = ''
 
-  this.word.forEach((letter) => {
-    if (this.guessedLetters.includes(letter) || letter === '') {
-      puzzle += letter
+    this.word.forEach((letter) => {
+      if (this.guessedLetters.includes(letter) || letter === ' ') {
+        puzzle += letter
+      } else {
+        puzzle += '*'
+      }
+    })
+
+    return puzzle
+  }
+
+  // custom getter class method
+  get statusMessage() {
+    if (this.status === 'playing') {
+      return `Guesse left: ${this.remainingGuesses}`
+    } else if (this.status === 'failed') {
+      return `Nice Try! The world was "${this.word.join('')}".`
     } else {
-      puzzle += '*'
+      return 'Grate work! You guessed the word.'
     }
-  })
+  }
 
-  return puzzle
+  // class method
+  calculateStatus() {
+    const finished = this.word.every((letter) => {
+      return this.guessedLetters.includes(letter) || letter === ' '
+    })
+
+    if (this.remainingGuesses === 0) {
+      this.status = 'failed'
+    } else if (finished) {
+      this.status = 'finished'
+    } else {
+      this.status = 'playing'
+    }
+  }
+
+  // class method
+  makeGuess(guess) {
+    guess = guess.toLowerCase()
+    const isUnique = !this.guessedLetters.includes(guess)
+    const isBadGuess = !this.word.includes(guess)
+
+    if (this.status !== 'playing') {
+      return
+    }
+
+    if (isUnique) {
+      this.guessedLetters.push(guess)
+    }
+
+    if (isUnique && isBadGuess) {
+      this.remainingGuesses--
+    }
+
+    this.calculateStatus()
+  }
 }
-
-const game1 = new Hangman('cat', 2)
-console.log(game1.getPuzzle())
-
-const game2 = new Hangman('New Jersey', 4)
-console.log(game2.getPuzzle())
