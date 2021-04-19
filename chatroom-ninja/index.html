@@ -57,9 +57,26 @@
 
 	</div>
 
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+	<script>
+		var firebaseConfig = {
+			apiKey: "AIzaSyA807XPa7GlclIXz5tUwjpIW5VoTTCUUmQ",
+			authDomain: "test-fb-db-f465c.firebaseapp.com",
+			databaseURL: "https://test-fb-db-f465c.firebaseio.com",
+			projectId: "test-fb-db-f465c",
+			storageBucket: "test-fb-db-f465c.appspot.com",
+			messagingSenderId: "696787082903",
+			appId: "1:696787082903:web:7ac27794abddcefe8413d2"
+		};
+		firebase.initializeApp(firebaseConfig);
+		const db = firebase.firestore();
+	</script>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
 					integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
 					crossorigin="anonymous"></script>
+
 	<script src="script/chat.js"></script>
 	<script src="script/ui.js"></script>
 	<script src="script/app.js"></script>
