@@ -2,11 +2,24 @@
   max-width: 600px;
 }
 
+.input-group-prepend {
+  width: 125px !important;
+}
+
+.input-group-text {
+  font-weight: 200;
+}
+
 .btn {
   background: darkslategray;
   color: white;
   outline: none !important;
   box-shadow: none !important;
+  width: 100px !important;
+}
+
+.btn:hover {
+  color: antiquewhite;
 }
 
 .btn:focus {
