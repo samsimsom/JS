@@ -5,6 +5,7 @@ const chatList = document.querySelector('.chat-list')
 const newChatForm = document.querySelector('.new-chat')
 const newNameForm = document.querySelector('.new-name')
 const updateMssg = document.querySelector('.update-mssg')
+const rooms = document.querySelector('.chat-rooms')
 
 // add a new chat
 newChatForm.addEventListener('submit', (e) => {
@@ -33,8 +34,14 @@ newNameForm.addEventListener('submit', (e) => {
   }, 2000)
 })
 
-// check local storage for a name
-const username = localStorage.username ? localStorage.username : 'anon'
+// update chat room
+rooms.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON') {
+    chatUI.clear()
+    chatroom.updateRoom(e.target.getAttribute('id'))
+    chatroom.getChats((chat) => chatUI.render(chat))
+  }
+})
 
 const nameFormLock = (value) => {
   if (value === 'on') {
@@ -45,6 +52,9 @@ const nameFormLock = (value) => {
     newNameForm.nameBtn.disabled = false
   }
 }
+
+// check local storage for a name
+const username = localStorage.username ? localStorage.username : 'anon'
 
 // class instances
 const chatUI = new ChatUI(chatList)

@@ -6,10 +6,9 @@ class ChatUI {
   }
 
   render(data) {
-    const when = dateFns.distanceInWordsToNow(
-      data.created_at.toDate(),
-      { addSuffix: true }
-    )
+    const when = dateFns.distanceInWordsToNow(data.created_at.toDate(), {
+      addSuffix: true,
+    })
     const html = `
       <li class="list-group-item">
         <span class="username">${data.username}</span>
@@ -18,5 +17,9 @@ class ChatUI {
       </li>`
 
     this.list.innerHTML += html
+  }
+
+  clear() {
+    this.list.innerHTML = ''
   }
 }
