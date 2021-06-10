@@ -1,3 +1,5 @@
+// JS Starting
+
 function lessonOne() {
   const request = new XMLHttpRequest();
 
