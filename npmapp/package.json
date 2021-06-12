@@ -1,0 +1,15 @@
+{
+  "name": "npmapp",
+  "version": "1.0.0",
+  "description": "My First NPM App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "samsimsom",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1",
+    "lodash": "^4.17.21"
+  }
+}
