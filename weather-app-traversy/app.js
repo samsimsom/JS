@@ -11,5 +11,7 @@ function getWeather() {
     .then((results) => {
       console.log(results)
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      console.log(err)
+    })
 }
